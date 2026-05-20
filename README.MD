@@ -1,81 +1,212 @@
-<div align="center">
+# 🏎️ Formula 1 Minimal API
 
-  <img src="./.github/assets/blue-saiyan-bg.png" alt="Logo" height="200">
-  <h1 align="center"><strong>NODE BOILERPLATE - BLUE EDITION</strong></h1>
-  <p align="center">
-	  Don't start a new Node project from zero!<br> Use this simple <b>Nodejs</b> boilerplate with pre-configured <b>Typescript</b> in a modern way.
-  </p>
+API leve e eficiente para aplicações web e móveis utilizando Node.js e Fastify. Este projeto consiste em uma API minimalista focada em operações básicas de consulta (CRUD simplificado), ideal para aplicações que necessitam de respostas rápidas, estrutura enxuta e fácil manutenção.
 
-</div>
+A API disponibiliza informações sobre equipes e pilotos de Fórmula 1 através de endpoints REST simples e performáticos.
 
-<br />
+---
 
-  <!-- Badges -->
-<div align="center">
-  
-  [![TypeScript version][ts-badge]][typescript-5-4]
-  [![Node.js version][nodejs-badge]][nodejs]
+# 🚀 Funcionalidades
 
-</div>
+- ✅ API REST minimalista
+- ✅ Consulta de equipes de Fórmula 1
+- ✅ Consulta de pilotos
+- ✅ Busca de piloto por ID
+- ✅ Estrutura simples e escalável
+- ✅ Respostas em JSON
+- ✅ Integração com CORS
+- ✅ Fastify com alta performance
 
-# 🚀 Technologies
+---
 
-This code source was developed with the following items:
+# 🛠️ Tecnologias Utilizadas
 
-### 📦 Dependencies
+- Node.js
+- Fastify
+- TypeScript
+- @fastify/cors
 
-- [typescript][typescript-npm] - Superset for application scale JavaScript development
-- [tsx][tsx-npm] - TypeScript Execute (tsx): Enable Node.js to run TypeScript
-- [tsup][tsup-npm] - Bundle your TypeScript library with no config, powered by esbuild
-- [@types/node][@types/node-npm] - type definitions for node
+---
 
-### 📄 Files
-
-- `.gitignore` - Ignore folders like node_modules
-- `.env` - Enviroment variables
-- `tsconfig.json` - Typescript configure Options
-
-### ⚡ Scripts
-
-- `npm run dist`: Compiles TypeScript files to JavaScript in the dist directory.
-- `npm run start:dev`: Runs the server in development mode with environment variables loaded from the .env file.
-- `npm run start:watch`: Runs the server in development mode with support for automatic reload on file changes.
-- `npm run start:dist`: Compiles the project and runs the compiled version from the dist directory.
-
-# 👨‍💻 How To Use
-
-click in **[Use this template]** OR
-
-To clone and run this application, you'll need [Git](https://git-scm.com), [Node.js v20+](https://nodejs.org/en/) + [NPM v10+](https://nodejs.org/en/) installed on your computer. From your command line:
+# 📂 Estrutura do Projeto
 
 ```bash
-# Clone this repository
-$ git clone https://github.com/felipeAguiarCode/node-blue-boilerplate
-
-# Go into the repository
-$ cd node-blue-boilerplate
-
-# Install dependencies
-$ npm install
+📦 formula-1-minimal-api
+ ┣ 📂 src
+ ┃ ┗ 📜 server.ts
+ ┣ 📜 package.json
+ ┣ 📜 package-lock.json
+ ┣ 📜 tsconfig.json
+ ┗ 📜 README.md
 ```
 
-## Author
+---
 
-| [<img src="https://avatars3.githubusercontent.com/u/37452836?s=96&v=4"><br><sub>Felipe Aguiar</sub>](https://github.com/felipeAguiarCode) |
-| :---------------------------------------------------------------------------------------------------------------------------------------: |
-|                                            [Linkedin](www.linkedin.com/in/felipe-aguiar-exe/)                                             |
+# 📦 Instalação
 
-# Credits
+Clone o repositório:
 
-icons by [Pino Lamanna][dribble-icon]
+```bash
+git clone https://github.com/kaddumotta/formula-1-minimal-api.git
+```
 
-[typescript]: https://www.typescriptlang.org/
-[typescript-5-4]: https://www.typescriptlang.org/
-[ts-badge]: https://img.shields.io/badge/TypeScript-5.4-blue.svg
-[nodejs-badge]: https://img.shields.io/badge/Node.js->=%2020.00-blue.svg
-[nodejs]: https://nodejs.org/
-[dribble-icon]: https://dribbble.com/Schakalwal
-[typescript-npm]: https://www.npmjs.com/package/typescript
-[tsx-npm]: https://www.npmjs.com/package/tsx
-[tsup-npm]: https://www.npmjs.com/package/tsup
-[@types/node-npm]: https://www.npmjs.com/package/@types/node
+Acesse a pasta do projeto:
+
+```bash
+cd formula-1-minimal-api
+```
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+---
+
+# ▶️ Como Executar
+
+Execute o projeto com:
+
+```bash
+npm run dev
+```
+
+O servidor será iniciado em:
+
+```bash
+http://localhost:3333
+```
+
+---
+
+# 📡 Endpoints da API
+
+## 🔹 Listar Equipes
+
+### Endpoint
+
+```http
+GET /teams
+```
+
+### Exemplo de resposta
+
+```json
+{
+  "teams": [
+    {
+      "id": 1,
+      "name": "McLaren",
+      "base": "Woking, United Kingdom"
+    },
+    {
+      "id": 2,
+      "name": "Mercedes",
+      "base": "Brackley, United Kingdom"
+    }
+  ]
+}
+```
+
+---
+
+## 🔹 Listar Pilotos
+
+### Endpoint
+
+```http
+GET /drivers
+```
+
+### Exemplo de resposta
+
+```json
+{
+  "drivers": [
+    {
+      "id": 1,
+      "name": "Lando Norris",
+      "team": "McLaren"
+    }
+  ]
+}
+```
+
+---
+
+## 🔹 Buscar Piloto por ID
+
+### Endpoint
+
+```http
+GET /drivers/:id
+```
+
+### Exemplo
+
+```http
+GET /drivers/1
+```
+
+### Resposta de sucesso
+
+```json
+{
+  "driver": {
+    "id": 1,
+    "name": "Lando Norris",
+    "team": "McLaren"
+  }
+}
+```
+
+### Resposta de erro
+
+```json
+{
+  "message": "Driver not found"
+}
+```
+
+---
+
+# ⚙️ Dependências
+
+Instale manualmente caso necessário:
+
+```bash
+npm install fastify @fastify/cors
+```
+
+---
+
+# 💡 Possíveis Melhorias Futuras
+
+- Implementar CRUD completo
+- Integração com banco de dados
+- Sistema de autenticação JWT
+- Paginação de resultados
+- Filtros por equipe
+- Dockerização da aplicação
+- Testes automatizados
+- Deploy em cloud
+
+---
+
+# 🎓 Projeto de Estudo
+
+Este projeto também foi desenvolvido como parte dos estudos do curso **Formação Node.js** da DIO (Digital Innovation One), com o objetivo de praticar conceitos fundamentais de desenvolvimento backend utilizando Node.js e Fastify.
+
+Durante o desenvolvimento foram aplicados conceitos como:
+
+- Criação de APIs REST
+- Estruturação de rotas
+- Fastify
+- TypeScript
+- Manipulação de parâmetros
+- Respostas HTTP
+- Integração com CORS
+- Estruturação de projetos backend
+
+O projeto foi personalizado e expandido para fins de aprendizado, prática e evolução no desenvolvimento de APIs modernas e performáticas com Node.js.
